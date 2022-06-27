@@ -6,6 +6,8 @@ services:
     container_name: postgres_db
     networks:
       - my-bridge
+    volumes:
+      - drf-app-volume:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
@@ -28,3 +30,6 @@ services:
 networks:
   my-bridge:
     driver: bridge
+
+volumes:
+  drf-app-volume:
